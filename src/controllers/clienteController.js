@@ -37,21 +37,21 @@ const clienteController = {
 
   incluiRegistro: async (req, res) => {
     try {
-      const { descricao, valor } = req.body;
-      if (!descricao || !valor || !isNaN(descricao) || isNaN(valor)) {
+      const { nome, cpf } = req.body;
+      if (!nome || !cpf || !isNaN(nome) || isNaN(cpf)) {
         return res
           .status(400)
           .json({ message: `Verifique os dados enviados e tente novamente` });
       }
 
-      const existe = await clienteModel.verificaCpf(valor);
+      const existe = await clienteModel.verificaCpf(cpf);
       if (existe.length > 0) {
         return res.status(409).json({
           message: "Este CPF já está cadastrado.",
         });
       }
 
-      const resultado = await clienteModel.insert(descricao, valor);
+      const resultado = await clienteModel.insert(nome, cpf);
       if (resultado.insertId === 0) {
         throw new Error("Ocorreu um erro ao incluir o cliente.");
       }
@@ -70,13 +70,13 @@ const clienteController = {
   alterarCliente: async (req, res) => {
     try {
       const idCliente = Number(req.params.idCliente);
-      const { descricao, valor } = req.body;
-      const existe = await clienteModel.findByCpf(valor);
+      const { nome, cpf } = req.body;
+      const existe = await clienteModel.verificaCpf(cpf);
 
       if (
         !idCliente ||
-        (!descricao && !valor) ||
-        (!isNaN(descricao) && isNaN(valor)) ||
+        (!nome && !cpf) ||
+        (!isNaN(nome) && isNaN(cpf)) ||
         typeof idCliente != "number"
       ) {
         return res
@@ -91,17 +91,17 @@ const clienteController = {
       
       if (existe.length > 0) {
         return res.status(409).json({
-          message: "O novo CPF já está cadastrado. Tente outro valor.",
+          message: "O novo CPF já está cadastrado. Tente outro cpf.",
         });
       }
 
-      const novaDescricao = descricao ?? clienteAtual[0].nome_cliente;
-      const novoValor = valor ?? clienteAtual[0].cpf_cliente;
+      const novoNome = nome ?? clienteAtual[0].nome_cliente;
+      const novoCpf = cpf ?? clienteAtual[0].cpf_cliente;
 
       const resultUpdate = await clienteModel.update(
         idCliente,
-        novaDescricao,
-        novoValor
+        novoNome,
+        novoCpf
       );
       if (resultUpdate.affectedRows === 1 && resultUpdate.changedRows === 0) {
         return res

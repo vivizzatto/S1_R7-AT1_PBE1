@@ -61,10 +61,10 @@ const clienteModel = {
     return rows; 
   },
 
-  update: async (pId, pDescricao, pValor) => {
+  update: async (pId, pNomeCli, pCpfCli) => {
     const sql =
       "UPDATE clientes SET nome_cliente=?, cpf_cliente=? WHERE id_cliente=?;";
-    const values = [pDescricao, pValor, pId];
+    const values = [pNomeCli, pCpfCli, pId];
     const [rows] = await pool.query(sql, values);
     return rows;
   },
