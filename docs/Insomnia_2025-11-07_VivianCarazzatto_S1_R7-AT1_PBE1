@@ -1,0 +1,245 @@
+type: collection.insomnia.rest/5.0
+name: DES - M2H
+meta:
+  id: wrk_692bd90005104dfebb3e0c802851635a
+  created: 1761310874236
+  modified: 1761310874236
+  description: ""
+collection:
+  - name: Produtos
+    meta:
+      id: fld_4787748fd7b54f42a7d77a8b3254f583
+      created: 1761310903851
+      modified: 1761310903851
+      sortKey: -1761310903851
+      description: ""
+    children:
+      - url: localhost:8000/produtos
+        name: SELECT
+        meta:
+          id: req_c9f3d0cde67141a4a6b35d1ae0efa8a2
+          created: 1761310906721
+          modified: 1762438460092
+          isPrivate: false
+          description: ""
+          sortKey: -1761310906721
+        method: GET
+        parameters:
+          - id: pair_e93f3620c5e44fb1b07497f17208567c
+            name: idProduto
+            value: "3"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/produtos
+        name: INSERT
+        meta:
+          id: req_17e28fb61a8f4fedadce36f3c5051908
+          created: 1761314764223
+          modified: 1762430534931
+          isPrivate: false
+          description: ""
+          sortKey: -1761310906821
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"descricao": "bananas",
+            	"valor": 15.99
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/produtos/3
+        name: UPDATE
+        meta:
+          id: req_98bfc8a8a37749a3ab949ba6b575e033
+          created: 1762429655572
+          modified: 1762430547629
+          isPrivate: false
+          description: ""
+          sortKey: -1761310906921
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"valor": "20.99"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/produtos/2
+        name: DELETE
+        meta:
+          id: req_af6dd099bb604c0db3bca6c396c732dc
+          created: 1762432888249
+          modified: 1762432911801
+          isPrivate: false
+          description: ""
+          sortKey: -1761310906621
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Clientes
+    meta:
+      id: fld_bcbd337da38a45b288e803edc056b38a
+      created: 1762438274139
+      modified: 1762438278110
+      sortKey: -1762438274139
+      description: ""
+    children:
+      - url: localhost:8000/clientes/8
+        name: DELETE
+        meta:
+          id: req_fb98558f73144212b4932dbe1413a688
+          created: 1762438280204
+          modified: 1762517814718
+          isPrivate: false
+          description: ""
+          sortKey: -1762438282219
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/clientes
+        name: SELECT
+        meta:
+          id: req_99bb53e854ec47db9930a88ba20e408b
+          created: 1762438288831
+          modified: 1762438381708
+          isPrivate: false
+          description: ""
+          sortKey: -1762438282319
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/clientes
+        name: INSERT
+        meta:
+          id: req_0573a79d43704f46bb29c38eaa925381
+          created: 1762438292394
+          modified: 1762517803706
+          isPrivate: false
+          description: ""
+          sortKey: -1762438282419
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Teste Souza",
+            	"cpf": 55555555553
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/clientes/3
+        name: UPDATE
+        meta:
+          id: req_fd409a929b56476eabf577f8e00d4f43
+          created: 1762438299089
+          modified: 1762517776491
+          isPrivate: false
+          description: ""
+          sortKey: -1762438282519
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "TesteTeste"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_d7491dddd08c667faf142e70bbe7b8a2a6eb3ef3
+    created: 1761310874272
+    modified: 1761310874272
+environments:
+  name: Base Environment
+  meta:
+    id: env_d7491dddd08c667faf142e70bbe7b8a2a6eb3ef3
+    created: 1761310874242
+    modified: 1761310874242
+    isPrivate: false
